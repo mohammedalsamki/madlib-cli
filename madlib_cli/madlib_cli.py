@@ -21,11 +21,11 @@ def merge(const , words):
    
     list = parse_template(const)  
     
-    return (re.sub(r' {[^}]*}',' {}',const)).format(*words) 
+    return (re.sub(r'{[^}]*}','{}',const)).format(*words) 
 
 def copyFile_from_text(texts):
     print(texts)
-    file = open('assets/filled_template.txt','w')
+    file = open('madlib_cli/assets/filled_template.txt','w')
     file.write(texts)
 
 if __name__ == "__main__":
