@@ -1,14 +1,18 @@
 import re
 
 
-def read_template():
+def read_template(filePath="madlib_cli/assets/mad_temp_result.text"):
     """
     Returns the mad_temp_result.txt file 
     """
-    file = open("madlib_cli/assets/mad_temp_result.text",'r')
-    cont = file.read()
-    return cont  
-  
+    try:
+        file = open(filePath,'r')
+        cont = file.read()
+        return cont  
+    except FileNotFoundError:
+        raise FileNotFoundError('filenot found')
+
+
 def parse_template(const):
   list =[]
   resive =re.findall(r'\{.*?\}', const)
